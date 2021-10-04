@@ -1,5 +1,6 @@
 import { ThemeProvider } from 'styled-components';
 import Page from './components/Page';
+import { GlobalStyles } from './components/styles/GlobalStyles';
 
 const theme = {
   colors: {
@@ -11,15 +12,16 @@ const theme = {
     social: 'hsl(264, 64%, 52%)',
     selfCare: 'hsl(43, 84%, 65%)',
     background: 'hsl(226, 43%, 10%)',
-    cardColour: 'hsl(235, 46%, 20%)',
-    hovourColour: 'hsl(235, 45%, 61%)',
-    accentColour: 'hsl(236, 100%, 87%)',
+    card: 'hsl(235, 46%, 20%)',
+    hover: 'hsl(235, 45%, 61%)',
+    accent: 'hsl(236, 100%, 87%)',
   },
 };
 
 function App({ children }) {
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyles />
       <Page>{children}</Page>
     </ThemeProvider>
   );

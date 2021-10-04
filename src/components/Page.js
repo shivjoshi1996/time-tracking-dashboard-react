@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+const StyledPage = styled.main`
+  min-height: 100vh;
+  background-color: ${({ theme }) => theme.colors.background};
+`;
+
 export default function Page() {
-  return <h1>Yo</h1>;
+  return <StyledPage>Yo</StyledPage>;
 }
