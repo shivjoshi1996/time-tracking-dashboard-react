@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from 'styled-components';
+import Page from './components/Page';
 
-function App() {
+const theme = {
+  colors: {
+    primary: 'hsl(246, 80%, 60%)',
+    work: 'hsl(15, 100%, 70%)',
+    play: 'hsl(195, 74%, 62%)',
+    study: 'hsl(348, 100%, 68%)',
+    excercise: 'hsl(145, 58%, 55%)',
+    social: 'hsl(264, 64%, 52%)',
+    selfCare: 'hsl(43, 84%, 65%)',
+    background: 'hsl(226, 43%, 10%)',
+    cardColour: 'hsl(235, 46%, 20%)',
+    hovourColour: 'hsl(235, 45%, 61%)',
+    accentColour: 'hsl(236, 100%, 87%)',
+  },
+};
+
+function App({ children }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Page>{children}</Page>
+    </ThemeProvider>
   );
 }
 
