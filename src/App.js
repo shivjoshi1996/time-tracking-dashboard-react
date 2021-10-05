@@ -15,6 +15,7 @@ const theme = {
     card: 'hsl(235, 46%, 20%)',
     hover: 'hsl(235, 45%, 61%)',
     accent: 'hsl(236, 100%, 87%)',
+    font: 'white',
   },
 };
 

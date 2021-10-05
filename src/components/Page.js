@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Dashboard from './Dashboard';
 
 const StyledPage = styled.main`
   min-height: 100vh;
@@ -6,5 +7,9 @@ const StyledPage = styled.main`
 `;
 
 export default function Page() {
-  return <StyledPage>Yo</StyledPage>;
+  return (
+    <StyledPage>
+      <Dashboard />
+    </StyledPage>
+  );
 }
