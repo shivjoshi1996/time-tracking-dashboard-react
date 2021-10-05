@@ -1,6 +1,5 @@
 export default function TimeCard({ title, current, previous }) {
   const titleFormatted = title.replace(/\s+/g, '-').toLowerCase();
-  console.log(titleFormatted);
   const imageSrc = `/icon-${titleFormatted}.svg`;
 
   return (

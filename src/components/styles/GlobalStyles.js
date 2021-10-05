@@ -46,6 +46,7 @@ const GlobalStyles = createGlobalStyle`
   }
   body {
     color: white;
+    font-family: 'Rubik', sans-serif;
   }
 `;
 

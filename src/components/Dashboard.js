@@ -4,7 +4,7 @@ import TimeCard from './TimeCard';
 
 export default function Dashboard() {
   const [data, setData] = useState([]);
-  const [timeFilter, setTimeFilter] = useState('weekly');
+  const [timeFilter, setTimeFilter] = useState('daily');
 
   const getData = () => {
     fetch('data.json', {
@@ -22,8 +22,6 @@ export default function Dashboard() {
     getData();
   }, []);
 
-  console.log(data);
-
   const filteredData = data.map((item) => {
     const newObject = {};
     // newArray.push(item.title);
@@ -35,7 +33,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <ProfileCard setTimeFilter={setTimeFilter} />
+      <ProfileCard timeFilter={timeFilter} setTimeFilter={setTimeFilter} />
       {filteredData.map((item) => (
         <TimeCard
           key={item.title}
