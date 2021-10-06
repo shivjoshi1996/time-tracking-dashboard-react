@@ -79,9 +79,11 @@ const StyledPreviousHours = styled.p`
 `;
 
 export default function TimeCard({ title, current, previous, timeframe }) {
+  // Getting correct image based on the title prop
   const titleFormatted = title.replace(/\s+/g, '-').toLowerCase();
   const imageSrc = `/icon-${titleFormatted}.svg`;
 
+  // Getting correct background color based on title prop
   let background = 'white';
 
   switch (title) {

@@ -25,6 +25,7 @@ export default function Dashboard() {
   const [timeFilter, setTimeFilter] = useState('daily');
   const [timeframe, setTimeframe] = useState('Yesterday');
 
+  // Initial Data Retrieval from JSON file
   const getData = () => {
     fetch('data.json', {
       headers: {
@@ -41,6 +42,7 @@ export default function Dashboard() {
     getData();
   }, []);
 
+  // Filtering JSON data based on which time filter has been selected
   const filteredData = data.map((item) => {
     const newObject = {};
     newObject.title = item.title;
