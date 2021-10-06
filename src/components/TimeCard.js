@@ -23,6 +23,15 @@ const StyledTimeCardContentContainer = styled.div`
   height: 122px;
   width: 100%;
   bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: space-evenly;
+  align-items: center;
+
+  h2 {
+    font-weight: 300;
+    font-size: 2rem;
+  }
 `;
 
 export default function TimeCard({ title, current, previous }) {
