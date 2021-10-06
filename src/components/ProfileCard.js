@@ -59,7 +59,11 @@ const TimeButton = styled.button`
   }
 `;
 
-export default function ProfileCard({ timeFilter, setTimeFilter }) {
+export default function ProfileCard({
+  timeFilter,
+  setTimeFilter,
+  setTimeframe,
+}) {
   return (
     <CardContainer>
       <CardProfileContainer>
@@ -73,21 +77,30 @@ export default function ProfileCard({ timeFilter, setTimeFilter }) {
         <TimeButton
           active={timeFilter === 'daily'}
           type="button"
-          onClick={() => setTimeFilter('daily')}
+          onClick={() => {
+            setTimeFilter('daily');
+            setTimeframe('Yesterday');
+          }}
         >
           Daily
         </TimeButton>
         <TimeButton
           active={timeFilter === 'weekly'}
           type="button"
-          onClick={() => setTimeFilter('weekly')}
+          onClick={() => {
+            setTimeFilter('weekly');
+            setTimeframe('Last Week');
+          }}
         >
           Weekly
         </TimeButton>
         <TimeButton
           active={timeFilter === 'monthly'}
           type="button"
-          onClick={() => setTimeFilter('monthly')}
+          onClick={() => {
+            setTimeFilter('monthly');
+            setTimeframe('Last Month');
+          }}
         >
           Monthly
         </TimeButton>

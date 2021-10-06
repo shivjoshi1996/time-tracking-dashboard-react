@@ -16,26 +16,45 @@ const StyledTimeCardIcon = styled.img`
   transform: translateY(-5px);
 `;
 
-const StyledTimeCardContentContainer = styled.div`
+const StyledTimeCardBottomContainer = styled.div`
   background-color: ${(props) => props.theme.colors.card};
   border-radius: 15px;
   position: absolute;
   height: 122px;
   width: 100%;
   bottom: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-content: space-evenly;
-  align-items: center;
 
   h2 {
     font-weight: 300;
     font-size: 2rem;
   }
+
+  img {
+    justify-self: end;
+  }
 `;
 
-export default function TimeCard({ title, current, previous }) {
-  console.log(title);
+const StyledTimeCardContent = styled.div`
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: space-evenly;
+  align-items: center;
+  height: 100%;
+`;
+
+const StyledTitle = styled.p`
+  font-weight: 500;
+  font-size: 18px;
+`;
+
+const StyledPreviousHours = styled.p`
+  text-align: right;
+  color: ${({ theme }) => theme.colors.accent};
+`;
+
+export default function TimeCard({ title, current, previous, timeframe }) {
   const titleFormatted = title.replace(/\s+/g, '-').toLowerCase();
   const imageSrc = `/icon-${titleFormatted}.svg`;
 
@@ -67,12 +86,16 @@ export default function TimeCard({ title, current, previous }) {
   return (
     <StyledTimeCardContainer background={background}>
       <StyledTimeCardIcon src={imageSrc} alt={`${title} icon`} />
-      <StyledTimeCardContentContainer>
-        <p>{title}</p>
-        <img src="/icon-ellipsis.svg" alt="ellipsis" />
-        <h2>{current}hrs</h2>
-        <p>Last Week - {previous}hrs</p>
-      </StyledTimeCardContentContainer>
+      <StyledTimeCardBottomContainer>
+        <StyledTimeCardContent>
+          <StyledTitle>{title}</StyledTitle>
+          <img src="/icon-ellipsis.svg" alt="ellipsis" />
+          <h2>{current}hrs</h2>
+          <StyledPreviousHours>
+            {timeframe} - {previous}hrs
+          </StyledPreviousHours>
+        </StyledTimeCardContent>
+      </StyledTimeCardBottomContainer>
     </StyledTimeCardContainer>
   );
 }
