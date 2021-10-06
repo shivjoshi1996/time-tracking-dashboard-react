@@ -1,28 +1,31 @@
 import styled from 'styled-components';
 
 const StyledTimeCardContainer = styled.div`
-  background-color: ${(props) => props.theme.colors[props.background]};
   width: 90%;
   margin: 0 auto;
   border-radius: 15px;
-  position: relative;
-  height: 160px;
+`;
+
+const StyledTimeCardIconContainer = styled.div`
+  height: 38px;
+  border-radius: 15px 15px 0px 0px;
   overflow: hidden;
+  position: relative;
 `;
 
 const StyledTimeCardIcon = styled.img`
-  position: absolute;
   right: 20px;
-  transform: translateY(-5px);
+  transform: translateY(-10px);
+  position: absolute;
 `;
 
 const StyledTimeCardBottomContainer = styled.div`
   background-color: ${(props) => props.theme.colors.card};
   border-radius: 15px;
-  position: absolute;
   height: 122px;
   width: 100%;
   bottom: 0;
+  transform: translateY(-10px);
 
   h2 {
     font-weight: 300;
@@ -62,22 +65,22 @@ export default function TimeCard({ title, current, previous, timeframe }) {
 
   switch (title) {
     case 'Work':
-      background = 'work';
+      background = 'hsl(15, 100%, 70%)';
       break;
     case 'Play':
-      background = 'play';
+      background = 'hsl(195, 74%, 62%)';
       break;
     case 'Study':
-      background = 'study';
+      background = 'hsl(348, 100%, 68%)';
       break;
     case 'Exercise':
-      background = 'exercise';
+      background = 'hsl(145, 58%, 55%)';
       break;
     case 'Social':
-      background = 'social';
+      background = 'hsl(264, 64%, 52%)';
       break;
     case 'Self Care':
-      background = 'selfCare';
+      background = 'hsl(43, 84%, 65%)';
       break;
     default:
       background = 'white';
@@ -85,7 +88,9 @@ export default function TimeCard({ title, current, previous, timeframe }) {
 
   return (
     <StyledTimeCardContainer background={background}>
-      <StyledTimeCardIcon src={imageSrc} alt={`${title} icon`} />
+      <StyledTimeCardIconContainer style={{ backgroundColor: background }}>
+        <StyledTimeCardIcon src={imageSrc} alt={`${title} icon`} />
+      </StyledTimeCardIconContainer>
       <StyledTimeCardBottomContainer>
         <StyledTimeCardContent>
           <StyledTitle>{title}</StyledTitle>
