@@ -27,9 +27,18 @@ const StyledTimeCardBottomContainer = styled.div`
   bottom: 0;
   transform: translateY(-10px);
 
+  @media (min-width: 768px) {
+    min-height: 90%;
+  }
+
   h2 {
     font-weight: 300;
     font-size: 2rem;
+
+    @media (min-width: 768px) {
+      grid-area: hours;
+      font-size: 3.5rem;
+    }
   }
 
   img {
@@ -45,6 +54,13 @@ const StyledTimeCardContent = styled.div`
   align-content: space-evenly;
   align-items: center;
   height: 100%;
+
+  @media (min-width: 768px) {
+    grid-template-areas:
+      'title elipsis'
+      'hours hours'
+      'previous previous';
+  }
 `;
 
 const StyledTitle = styled.p`
@@ -55,6 +71,11 @@ const StyledTitle = styled.p`
 const StyledPreviousHours = styled.p`
   text-align: right;
   color: ${({ theme }) => theme.colors.accent};
+
+  @media (min-width: 768px) {
+    grid-area: previous;
+    text-align: left;
+  }
 `;
 
 export default function TimeCard({ title, current, previous, timeframe }) {

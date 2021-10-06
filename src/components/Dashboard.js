@@ -7,6 +7,17 @@ const StyledDashboardGrid = styled.div`
   display: grid;
   grid-row-gap: 1.5rem;
   padding: 5.0625rem 0px;
+
+  @media (min-width: 768px) {
+    grid-template-areas:
+      'profilecard timecard timecard timecard'
+      'profilecard timecard timecard timecard';
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 255px 255px;
+    align-items: stretch;
+    max-width: 1110px;
+    margin: 0 auto;
+  }
 `;
 
 export default function Dashboard() {
@@ -30,26 +41,8 @@ export default function Dashboard() {
     getData();
   }, []);
 
-  // useEffect(() => {
-  //   switch (timeFilter) {
-  //     case 'daily':
-  //       setTimeframe('Yesterday');
-  //       break;
-  //     case 'weekly':
-  //       setTimeframe('Last Week');
-  //       break;
-  //     case 'monthly':
-  //       setTimeframe('Last Month');
-  //       break;
-  //     default:
-  //       setTimeframe('Yesterday');
-  //   }
-  // }, [timeFilter]);
-
   const filteredData = data.map((item) => {
     const newObject = {};
-    // newArray.push(item.title);
-    // newArray.push(item.timeframes[`${timeFilter}`]);
     newObject.title = item.title;
     newObject[timeFilter] = item.timeframes[`${timeFilter}`];
     return newObject;

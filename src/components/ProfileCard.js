@@ -5,6 +5,10 @@ const CardContainer = styled.div`
   margin: 0 auto;
   background-color: ${(props) => props.theme.colors.card};
   border-radius: 15px;
+
+  @media (min-width: 768px) {
+    grid-area: profilecard;
+  }
 `;
 
 const CardProfileContainer = styled.div`
@@ -14,6 +18,13 @@ const CardProfileContainer = styled.div`
   border-radius: 15px;
   padding: 35px 5%;
   justify-content: center;
+
+  @media (min-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 55%;
+  }
 
   img {
     height: 64px;
@@ -27,10 +38,18 @@ const CardProfileContainer = styled.div`
     font-size: 15px;
     color: rgba(187, 192, 255, 1);
     margin-bottom: 4px;
+
+    @media (min-width: 768px) {
+      padding-top: 2.6875rem;
+    }
   }
   h2 {
     font-size: 1.5rem;
     font-weight: 300;
+
+    @media (min-width: 768px) {
+      font-size: 2.5rem;
+    }
   }
 `;
 
@@ -43,6 +62,11 @@ const CardProfileButtonsContainer = styled.div`
   display: flex;
   padding: 25px;
   justify-content: space-around;
+
+  @media (min-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const TimeButton = styled.button`
@@ -56,6 +80,10 @@ const TimeButton = styled.button`
 
   &:hover {
     color: white;
+  }
+
+  @media (min-width: 768px) {
+    padding-bottom: 1.3125rem;
   }
 `;
 
