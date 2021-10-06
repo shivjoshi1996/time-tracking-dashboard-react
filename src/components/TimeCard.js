@@ -118,9 +118,13 @@ export default function TimeCard({ title, current, previous, timeframe }) {
         <StyledTimeCardContent>
           <StyledTitle>{title}</StyledTitle>
           <img src="/icon-ellipsis.svg" alt="ellipsis" />
-          <h2>{current}hrs</h2>
+          <h2>
+            {current}
+            {current > 1 ? 'hrs' : 'hr'}
+          </h2>
           <StyledPreviousHours>
-            {timeframe} - {previous}hrs
+            {timeframe} - {previous}
+            {previous > 1 ? 'hrs' : 'hr'}
           </StyledPreviousHours>
         </StyledTimeCardContent>
       </StyledTimeCardBottomContainer>
